@@ -4,6 +4,8 @@ import heroSchool from "@/assets/hero-school.jpg";
 import heroSchool2 from "@/assets/hero-school2.jpg";
 import heroSchool3 from "@/assets/hero-school3.jpg";
 import students from "@/assets/students.jpg";
+import { contatoContent, escolaContent, ensinoContent, noticiasContent } from "@/data/content";
+import { usePageTitle } from "@/hooks/usePageTitle";
 
 function splitTitle(title: string) {
   const words = title.split(" ");
@@ -11,28 +13,14 @@ function splitTitle(title: string) {
   return { top: words.slice(0, mid).join(" "), bottom: words.slice(mid).join(" ") };
 }
 
-const cursos = [
-  { title: "Desenvolvimento de Sistemas", level: "Curso Técnico Integrado" },
-  { title: "Administração", level: "Curso Técnico Integrado" },
-  { title: "Informática", level: "Curso Técnico Integrado" },
-  { title: "Marketing", level: "Curso Técnico Integrado" },
-];
-
-const stats = [
+const homeStats = [
   { value: "100%", label: "ALUNOS APROVADOS NO ENSINO MÉDIO" },
   { value: "40:1", label: "RAZÃO MÉDIA DE ALUNOS POR PROFESSOR" },
-  { value: "4", label: "CURSOS TÉCNICOS OFERECIDOS" },
-  { value: "14", label: "TURMAS ATIVAS" },
-  { value: "50+", label: "ANOS FORMANDO ESTUDANTES" },
-  { value: "1976", label: "ANO DE FUNDAÇÃO" },
-];
-
-const eventos = [
-  { mes: "MAI", dia: "25", title: "Feira de Ciências", hora: "08:00 — 17:00" },
-  { mes: "JUN", dia: "10", title: "Jogos Escolares", hora: "07:30 — 18:00" },
-  { mes: "AGO", dia: "15", title: "Mostra de Cursos Técnicos", hora: "09:00 — 16:00" },
-  { mes: "NOV", dia: "20", title: "Formatura — 3º Ano", hora: "19:00" },
-];
+  ...escolaContent.sobre.stats.map((s) => ({
+    value: s.value,
+    label: s.label.toUpperCase(),
+  })),
+].slice(0, 6);
 
 const heroSlides = [
   {
@@ -58,6 +46,7 @@ const heroSlides = [
 ];
 
 export function HomePage() {
+  usePageTitle("Início");
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const nextSlide = useCallback(() => {
@@ -134,9 +123,7 @@ export function HomePage() {
 
       <section className="py-14 px-6">
         <p className="max-w-4xl mx-auto text-center text-slate-700 leading-relaxed">
-          <span className="font-bold text-[#003366]">Nossa Missão:</span> O CETI José Nogueira de
-          Aguiar capacita cada estudante por meio de uma formação técnica completa e inspira o amor
-          pelo aprendizado ao longo da vida.{" "}
+          <span className="font-bold text-[#003366]">Nossa Missão:</span> {escolaContent.missao}{" "}
           <Link to="/a-escola/historia" className="text-[#003366] underline underline-offset-2">
             Conheça nossa história
           </Link>
@@ -146,7 +133,7 @@ export function HomePage() {
 
       <section className="px-6 pb-16">
         <div className="max-w-7xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-4">
-          {cursos.map((c, i) => (
+          {ensinoContent.cursos.map((c, i) => (
             <Link
               key={c.title}
               to="/ensino/modalidades"
@@ -170,7 +157,7 @@ export function HomePage() {
       <section className="bg-[#003366] text-white py-16 px-6">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center">
           <div className="grid grid-cols-2 gap-x-8 gap-y-10">
-            {stats.map((s) => (
+            {homeStats.map((s) => (
               <div key={s.label}>
                 <div className="text-4xl font-light">{s.value}</div>
                 <div className="mt-2 text-[11px] uppercase tracking-widest opacity-80 leading-snug">
@@ -216,7 +203,7 @@ export function HomePage() {
 
           <div>
             <ul className="divide-y divide-slate-200">
-              {eventos.map((e) => (
+              {noticiasContent.eventos.map((e) => (
                 <li key={e.title} className="flex items-center gap-5 py-4">
                   <div className="bg-slate-100 px-4 py-3 text-center min-w-[70px]">
                     <div className="text-[10px] font-bold text-[#003366] uppercase tracking-widest">
@@ -249,14 +236,10 @@ export function HomePage() {
             ANOS IMPORTANTES
           </h2>
           <div className="mt-10 grid md:grid-cols-3 gap-6">
-            {[
-              { y: "1976", t: "Fundação da escola" },
-              { y: "2006", t: "Expansão das salas digitais" },
-              { y: "2024", t: "Novo curso técnico integrado" },
-            ].map((a) => (
-              <div key={a.y} className="bg-white p-6 border-t-2 border-[#003366]">
-                <div className="text-3xl font-light text-[#003366]">{a.y}</div>
-                <div className="mt-2 text-sm text-slate-600">{a.t}</div>
+            {escolaContent.historia.map((a) => (
+              <div key={a.year} className="bg-white p-6 border-t-2 border-[#003366]">
+                <div className="text-3xl font-light text-[#003366]">{a.year}</div>
+                <div className="mt-2 text-sm text-slate-600">{a.title}</div>
               </div>
             ))}
           </div>
@@ -277,12 +260,12 @@ export function HomePage() {
             COMO CHEGAR
           </h2>
           <p className="text-center text-slate-600 mt-3 text-sm max-w-2xl mx-auto">
-            O CETI José Nogueira de Aguiar está localizado em Esperantina — PI. Veja o mapa abaixo
-            para traçar sua rota.
+            O CETI José Nogueira de Aguiar está localizado em {contatoContent.endereco}. Veja o mapa
+            abaixo para traçar sua rota.
           </p>
           <div className="mt-8 rounded-sm overflow-hidden border border-slate-200 shadow-sm">
             <iframe
-              src="https://maps.google.com/maps?q=-3.8936001,-42.2365656&t=&z=16&ie=UTF8&iwloc=&output=embed"
+              src={contatoContent.mapsEmbed}
               width="100%"
               height="400"
               style={{ border: 0 }}
@@ -295,7 +278,7 @@ export function HomePage() {
           </div>
           <div className="mt-6 text-center text-sm text-slate-600">
             <div className="font-semibold text-[#003366]">Endereço</div>
-            <div className="mt-1">Esperantina — PI, Brasil</div>
+            <div className="mt-1">{contatoContent.endereco}</div>
             <Link
               to="/contato/localizacao"
               className="inline-block mt-3 text-xs font-bold tracking-widest text-[#003366] uppercase hover:underline"

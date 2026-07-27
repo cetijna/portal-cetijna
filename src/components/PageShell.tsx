@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
+import { usePageTitle } from "@/hooks/usePageTitle";
 
 type PageShellProps = {
   section: string;
@@ -8,6 +9,8 @@ type PageShellProps = {
 };
 
 export function PageShell({ section, title, children }: PageShellProps) {
+  usePageTitle(title);
+
   return (
     <div className="bg-slate-50 min-h-[50vh]">
       <div className="bg-[#003366] text-white px-6 py-12">
