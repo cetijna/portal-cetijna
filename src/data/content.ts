@@ -111,3 +111,236 @@ export const contatoContent = {
     { label: "YouTube", url: "#", note: "Link oficial será publicado em breve." },
   ],
 };
+
+export const alunosContent = {
+  comunicados: [
+    {
+      data: "Em breve",
+      titulo: "Comunicados oficiais",
+      texto: "Avisos da direção e da coordenação serão publicados nesta lista.",
+    },
+  ],
+  calendario: [
+    { mes: "Fev", item: "Início do ano letivo", status: "Em breve" },
+    { mes: "Mai", item: "Feira de Ciências", status: "Em breve" },
+    { mes: "Jun", item: "Jogos Escolares", status: "Em breve" },
+    { mes: "Jul", item: "Recesso escolar", status: "Em breve" },
+    { mes: "Ago", item: "Mostra de Cursos Técnicos", status: "Em breve" },
+    { mes: "Nov", item: "Formatura — 3º Ano", status: "Em breve" },
+  ],
+  horarios: {
+    intro:
+      "Os horários de aula por turma serão publicados aqui. Enquanto isso, consulte a secretaria ou a coordenação do curso.",
+    turnos: [
+      { nome: "Matutino", periodo: "A definir", turmas: "Turmas do turno da manhã" },
+      { nome: "Vespertino", periodo: "A definir", turmas: "Turmas do turno da tarde" },
+    ],
+  },
+  normas: [
+    {
+      titulo: "Frequência e pontualidade",
+      texto: "A presença às aulas é obrigatória. Atrasos e faltas seguem o regimento escolar.",
+    },
+    {
+      titulo: "Uniforme e identificação",
+      texto: "O uso do uniforme e da identificação escolar será detalhado no manual do aluno.",
+    },
+    {
+      titulo: "Convívio e respeito",
+      texto: "Espera-se respeito entre estudantes, professores e servidores em todos os espaços.",
+    },
+    {
+      titulo: "Uso de laboratórios",
+      texto: "Equipamentos e laboratórios devem ser utilizados sob orientação docente.",
+    },
+  ],
+  achados: {
+    intro:
+      "Itens encontrados no campus podem ser entregues e retirados na secretaria. Esta página listará avisos recentes.",
+    itens: [{ item: "Nenhum aviso no momento", local: "—", data: "—" }],
+  },
+  denuncias: {
+    intro:
+      "Canal para denúncias, reclamações e sugestões da comunidade escolar. O envio real será integrado depois; por enquanto use o e-mail institucional.",
+    canais: [
+      { label: "E-mail institucional", value: "contato@cetijna.edu.br" },
+      { label: "Secretaria", value: "Atendimento presencial em horário comercial" },
+    ],
+  },
+};
+
+export const ensinoContent = {
+  modalidades: [
+    {
+      title: "Ensino Médio Técnico Integrado",
+      text: "Formação que une o ensino médio às competências técnicas de cada curso.",
+    },
+    {
+      title: "Formação geral",
+      text: "Base comum curricular com foco em preparação acadêmica e cidadania.",
+    },
+    {
+      title: "Formação técnica",
+      text: "Componentes específicos de cada eixo tecnológico, com práticas em laboratório.",
+    },
+  ],
+  cursos: [
+    {
+      title: "Desenvolvimento de Sistemas",
+      level: "Curso Técnico Integrado",
+      text: "Lógica, programação, bancos de dados e desenvolvimento de aplicações.",
+    },
+    {
+      title: "Administração",
+      level: "Curso Técnico Integrado",
+      text: "Gestão, empreendedorismo, processos administrativos e organização.",
+    },
+    {
+      title: "Informática",
+      level: "Curso Técnico Integrado",
+      text: "Suporte, redes, sistemas operacionais e ferramentas digitais.",
+    },
+    {
+      title: "Marketing",
+      level: "Curso Técnico Integrado",
+      text: "Comunicação, pesquisa de mercado, branding e mídias digitais.",
+    },
+  ],
+  disciplinas: [
+    {
+      grupo: "Base comum",
+      itens: [
+        "Língua Portuguesa",
+        "Matemática",
+        "História",
+        "Geografia",
+        "Biologia",
+        "Física",
+        "Química",
+      ],
+    },
+    {
+      grupo: "Formação técnica",
+      itens: ["Conforme o curso escolhido", "Projetos integradores", "Práticas de laboratório"],
+    },
+  ],
+  projetos: [
+    {
+      title: "Feira de Ciências",
+      text: "Mostra de trabalhos científicos e tecnológicos dos estudantes.",
+    },
+    {
+      title: "Mostra de Cursos Técnicos",
+      text: "Apresentação das competências técnicas desenvolvidas em cada curso.",
+    },
+    {
+      title: "Projetos integradores",
+      text: "Atividades que articulam componentes da formação geral e técnica.",
+    },
+  ],
+  eletivas: {
+    intro: "As eletivas complementam a formação e variam conforme o planejamento pedagógico anual.",
+    itens: [
+      {
+        title: "Eletivas em definição",
+        text: "A lista oficial do ano vigente será publicada em breve.",
+      },
+    ],
+  },
+  material: [
+    {
+      title: "Apostilas e slides",
+      status: "Em breve",
+      description: "Materiais compartilhados pelos professores.",
+    },
+    {
+      title: "Listas de exercícios",
+      status: "Em breve",
+      description: "Atividades de reforço por disciplina e curso.",
+    },
+    {
+      title: "Links úteis",
+      status: "Em breve",
+      description: "Recursos digitais recomendados pela coordenação.",
+    },
+  ],
+};
+
+export const noticiasContent = {
+  noticias: [
+    {
+      data: "Em breve",
+      titulo: "Portal institucional no ar",
+      texto: "O novo site do CETI organiza informações para alunos, famílias e comunidade.",
+    },
+  ],
+  eventos: [
+    { mes: "MAI", dia: "25", title: "Feira de Ciências", hora: "08:00 — 17:00" },
+    { mes: "JUN", dia: "10", title: "Jogos Escolares", hora: "07:30 — 18:00" },
+    { mes: "AGO", dia: "15", title: "Mostra de Cursos Técnicos", hora: "09:00 — 16:00" },
+    { mes: "NOV", dia: "20", title: "Formatura — 3º Ano", hora: "19:00" },
+  ],
+  galeria: {
+    intro: "Fotos de eventos, aulas e momentos da comunidade escolar serão reunidas aqui.",
+  },
+  interclasse: {
+    intro:
+      "O Interclasse reúne turmas em competições esportivas e atividades de convivência. Resultados e chaveamento serão publicados nesta página.",
+    itens: [
+      { title: "Modalidades", text: "Futsal, vôlei e outras atividades conforme calendário." },
+      { title: "Premiação", text: "Reconhecimento às equipes e turmas participantes." },
+    ],
+  },
+  arquivo: [
+    { year: "1976", title: "Fundação da escola" },
+    { year: "2006", title: "Expansão das salas digitais" },
+    { year: "2024", title: "Novo curso técnico integrado" },
+  ],
+};
+
+export const identidadeContent = {
+  brasao: {
+    intro:
+      "O brasão oficial representa a identidade do CETI José Nogueira de Aguiar. Utilize apenas arquivos oficiais e siga o manual de uso.",
+  },
+  logo: {
+    intro:
+      "A logo da escola deve ser usada em materiais institucionais, comunicados e peças digitais oficiais.",
+  },
+  jubileu: {
+    intro:
+      "Identidade comemorativa do Jubileu de Ouro. Arquivos e aplicações especiais serão disponibilizados nesta página.",
+  },
+  negativa: {
+    intro:
+      "A versão negativa é indicada para fundos escuros. Aguarde a publicação dos arquivos oficiais.",
+  },
+  arquivos: [
+    {
+      title: "Brasão — PNG",
+      status: "Disponível no site",
+      note: "Versão atual exibida nas páginas",
+    },
+    { title: "Logo — vetorial", status: "Em breve", note: "Arquivo oficial para download" },
+    { title: "Jubileu de Ouro", status: "Em breve", note: "Pacote comemorativo" },
+    { title: "Versão negativa", status: "Em breve", note: "Para fundos escuros" },
+  ],
+  manual: [
+    {
+      title: "Espaçamento mínimo",
+      text: "Mantenha área de respiro ao redor do brasão e da logo.",
+    },
+    {
+      title: "Fundos permitidos",
+      text: "Prefira fundos claros para a versão padrão e escuros para a versão negativa.",
+    },
+    {
+      title: "Não distorça",
+      text: "Não altere proporções, cores ou elementos do brasão sem autorização.",
+    },
+    {
+      title: "Uso institucional",
+      text: "Aplicações comerciais ou externas devem ser aprovadas pela direção.",
+    },
+  ],
+};
