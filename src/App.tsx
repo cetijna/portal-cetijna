@@ -1,30 +1,9 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useState, useCallback } from "react";
+import { useCallback, useEffect, useState } from "react";
 import heroSchool from "@/assets/hero-school.jpg";
 import heroSchool2 from "@/assets/hero-school2.jpg";
 import heroSchool3 from "@/assets/hero-school3.jpg";
 import students from "@/assets/students.jpg";
 import logoCeti from "@/assets/logo-ceti.png";
-
-export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "CETI José Nogueira de Aguiar — História da Escola" },
-      {
-        name: "description",
-        content:
-          "Conheça a história, cursos, turmas, anos importantes e eventos do CETI José Nogueira de Aguiar.",
-      },
-      { property: "og:title", content: "CETI José Nogueira de Aguiar" },
-      {
-        property: "og:description",
-        content: "História, cursos, turmas e eventos da nossa escola.",
-      },
-    ],
-    links: [{ rel: "canonical", href: "/" }],
-  }),
-  component: Index,
-});
 
 function splitTitle(title: string) {
   const words = title.split(" ");
@@ -32,58 +11,68 @@ function splitTitle(title: string) {
   return { top: words.slice(0, mid).join(" "), bottom: words.slice(mid).join(" ") };
 }
 
-function Index() {
-  const navLinks = ["História", "Cursos", "Turmas", "Anos", "Eventos", "Como Chegar"];
-  const cursos = [
-    { title: "Desenvolvimento de Sistemas", level: "Curso Técnico Integrado" },
-    { title: "Administração", level: "Curso Técnico Integrado" },
-    { title: "Informática", level: "Curso Técnico Integrado" },
-    { title: "Marketing", level: "Curso Técnico Integrado" },
-  ];
-  const stats = [
-    { value: "100%", label: "ALUNOS APROVADOS NO ENSINO MÉDIO" },
-    { value: "40:1", label: "RAZÃO MÉDIA DE ALUNOS POR PROFESSOR" },
-    { value: "4", label: "CURSOS TÉCNICOS OFERECIDOS" },
-    { value: "14", label: "TURMAS ATIVAS" },
-    { value: "50+", label: "ANOS FORMANDO ESTUDANTES" },
-    { value: "1976", label: "ANO DE FUNDAÇÃO" },
-  ];
-  const eventos = [
-    { mes: "MAI", dia: "25", title: "Feira de Ciências", hora: "08:00 — 17:00" },
-    { mes: "JUN", dia: "10", title: "Jogos Escolares", hora: "07:30 — 18:00" },
-    { mes: "AGO", dia: "15", title: "Mostra de Cursos Técnicos", hora: "09:00 — 16:00" },
-    { mes: "NOV", dia: "20", title: "Formatura — 3º Ano", hora: "19:00" },
-  ];
+const navLinks = [
+  { label: "História", href: "#historia" },
+  { label: "Cursos", href: "#cursos" },
+  { label: "Turmas", href: "#turmas" },
+  { label: "Anos", href: "#anos" },
+  { label: "Eventos", href: "#eventos" },
+  { label: "Como Chegar", href: "#como-chegar" },
+];
 
-  const heroSlides = [
-    {
-      img: heroSchool,
-      alt: "Vista aérea do CETI José Nogueira de Aguiar",
-      title: "SUA ESCOLA PARA A VIDA",
-      subtitle:
-        "CETI José Nogueira de Aguiar — escola pública de ensino técnico integrado, formando estudantes desde 1976.",
-    },
-    {
-      img: heroSchool2,
-      alt: "Campus do CETI em dia ensolarado",
-      title: "EDUCAÇÃO DE QUALIDADE",
-      subtitle:
-        "Infraestrutura moderna, laboratórios equipados e professores dedicados ao seu futuro.",
-    },
-    {
-      img: heroSchool3,
-      alt: "Laboratório de ciências do CETI",
-      title: "APRENDIZADO PRÁTICO",
-      subtitle:
-        "Cursos técnicos integrados que preparam você para o mercado de trabalho desde cedo.",
-    },
-  ];
+const cursos = [
+  { title: "Desenvolvimento de Sistemas", level: "Curso Técnico Integrado" },
+  { title: "Administração", level: "Curso Técnico Integrado" },
+  { title: "Informática", level: "Curso Técnico Integrado" },
+  { title: "Marketing", level: "Curso Técnico Integrado" },
+];
 
+const stats = [
+  { value: "100%", label: "ALUNOS APROVADOS NO ENSINO MÉDIO" },
+  { value: "40:1", label: "RAZÃO MÉDIA DE ALUNOS POR PROFESSOR" },
+  { value: "4", label: "CURSOS TÉCNICOS OFERECIDOS" },
+  { value: "14", label: "TURMAS ATIVAS" },
+  { value: "50+", label: "ANOS FORMANDO ESTUDANTES" },
+  { value: "1976", label: "ANO DE FUNDAÇÃO" },
+];
+
+const eventos = [
+  { mes: "MAI", dia: "25", title: "Feira de Ciências", hora: "08:00 — 17:00" },
+  { mes: "JUN", dia: "10", title: "Jogos Escolares", hora: "07:30 — 18:00" },
+  { mes: "AGO", dia: "15", title: "Mostra de Cursos Técnicos", hora: "09:00 — 16:00" },
+  { mes: "NOV", dia: "20", title: "Formatura — 3º Ano", hora: "19:00" },
+];
+
+const heroSlides = [
+  {
+    img: heroSchool,
+    alt: "Vista aérea do CETI José Nogueira de Aguiar",
+    title: "SUA ESCOLA PARA A VIDA",
+    subtitle:
+      "CETI José Nogueira de Aguiar — escola pública de ensino técnico integrado, formando estudantes desde 1976.",
+  },
+  {
+    img: heroSchool2,
+    alt: "Campus do CETI em dia ensolarado",
+    title: "EDUCAÇÃO DE QUALIDADE",
+    subtitle:
+      "Infraestrutura moderna, laboratórios equipados e professores dedicados ao seu futuro.",
+  },
+  {
+    img: heroSchool3,
+    alt: "Laboratório de ciências do CETI",
+    title: "APRENDIZADO PRÁTICO",
+    subtitle:
+      "Cursos técnicos integrados que preparam você para o mercado de trabalho desde cedo.",
+  },
+];
+
+export default function App() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const nextSlide = useCallback(() => {
     setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
-  }, [heroSlides.length]);
+  }, []);
 
   useEffect(() => {
     const timer = setInterval(nextSlide, 5000);
@@ -92,7 +81,6 @@ function Index() {
 
   return (
     <div className="min-h-screen bg-white text-slate-800 font-sans">
-      {/* Top header */}
       <header className="absolute top-0 left-0 right-0 z-20">
         <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-5">
           <div className="flex items-center gap-3 text-white">
@@ -110,21 +98,20 @@ function Index() {
           </div>
           <nav className="hidden md:flex items-center gap-7 text-white text-xs font-semibold tracking-widest uppercase">
             {navLinks.map((l) => (
-              <a key={l} href={`#${l.toLowerCase()}`} className="hover:opacity-70 transition">
-                {l}
+              <a key={l.href} href={l.href} className="hover:opacity-70 transition">
+                {l.label}
               </a>
             ))}
           </nav>
         </div>
       </header>
 
-      {/* Hero Carousel */}
       <section className="relative h-[640px] w-full overflow-hidden">
         {heroSlides.map((slide, i) => {
           const { top, bottom } = splitTitle(slide.title);
           return (
             <div
-              key={i}
+              key={slide.title}
               className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
                 i === currentSlide ? "opacity-100 z-10" : "opacity-0 z-0"
               }`}
@@ -151,16 +138,13 @@ function Index() {
           );
         })}
 
-        {/* Slide indicators */}
         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-2">
-          {heroSlides.map((_, i) => (
+          {heroSlides.map((slide, i) => (
             <button
-              key={i}
+              key={slide.title}
               onClick={() => setCurrentSlide(i)}
               className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                i === currentSlide
-                  ? "bg-white w-8"
-                  : "bg-white/50 hover:bg-white/80"
+                i === currentSlide ? "bg-white w-8" : "bg-white/50 hover:bg-white/80"
               }`}
               aria-label={`Ir para slide ${i + 1}`}
             />
@@ -168,26 +152,28 @@ function Index() {
         </div>
       </section>
 
-      {/* CTA strip */}
       <div className="bg-[#003366] text-white">
         <div className="max-w-5xl mx-auto grid grid-cols-3 divide-x divide-white/20 text-center text-sm font-semibold tracking-widest uppercase">
-          <a href="#historia" className="py-5 hover:bg-white/5 transition">Conheça</a>
-          <a href="#cursos" className="py-5 hover:bg-white/5 transition">Matricule-se</a>
-          <a href="#eventos" className="py-5 hover:bg-white/5 transition">Visite</a>
+          <a href="#historia" className="py-5 hover:bg-white/5 transition">
+            Conheça
+          </a>
+          <a href="#cursos" className="py-5 hover:bg-white/5 transition">
+            Matricule-se
+          </a>
+          <a href="#eventos" className="py-5 hover:bg-white/5 transition">
+            Visite
+          </a>
         </div>
       </div>
 
-      {/* Mission */}
       <section id="historia" className="py-14 px-6">
         <p className="max-w-4xl mx-auto text-center text-slate-700 leading-relaxed">
-          <span className="font-bold text-[#003366]">Nossa Missão:</span> O CETI
-          José Nogueira de Aguiar capacita cada estudante por meio de uma
-          formação técnica completa e inspira o amor pelo aprendizado ao longo
-          da vida.
+          <span className="font-bold text-[#003366]">Nossa Missão:</span> O CETI José Nogueira de
+          Aguiar capacita cada estudante por meio de uma formação técnica completa e inspira o amor
+          pelo aprendizado ao longo da vida.
         </p>
       </section>
 
-      {/* Cursos cards */}
       <section id="cursos" className="px-6 pb-16">
         <div className="max-w-7xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-4">
           {cursos.map((c, i) => (
@@ -203,16 +189,13 @@ function Index() {
               <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition" />
               <div className="relative z-10 h-full flex flex-col items-center justify-center text-white text-center p-4">
                 <h3 className="text-2xl font-light">{c.title}</h3>
-                <p className="mt-2 text-xs uppercase tracking-widest opacity-90">
-                  {c.level}
-                </p>
+                <p className="mt-2 text-xs uppercase tracking-widest opacity-90">{c.level}</p>
               </div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Stats on blue */}
       <section className="bg-[#003366] text-white py-16 px-6">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center">
           <div className="grid grid-cols-2 gap-x-8 gap-y-10">
@@ -238,7 +221,6 @@ function Index() {
         </div>
       </section>
 
-      {/* Turmas + Eventos */}
       <section id="eventos" className="py-16 px-6">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10">
           <div id="turmas">
@@ -250,13 +232,14 @@ function Index() {
               loading="lazy"
               className="w-full h-72 object-cover rounded-sm"
             />
-            <h2 className="mt-6 text-[#003366] text-xl font-semibold">
-              Turmas Ativas
-            </h2>
+            <h2 className="mt-6 text-[#003366] text-xl font-semibold">Turmas Ativas</h2>
             <ul className="mt-3 grid grid-cols-2 gap-2 text-sm text-slate-700">
-              <li>1º Ano A</li><li>1º Ano B</li>
-              <li>2º Ano A</li><li>2º Ano B</li>
-              <li>3º Ano A</li><li>3º Ano B</li>
+              <li>1º Ano A</li>
+              <li>1º Ano B</li>
+              <li>2º Ano A</li>
+              <li>2º Ano B</li>
+              <li>3º Ano A</li>
+              <li>3º Ano B</li>
             </ul>
           </div>
 
@@ -268,9 +251,7 @@ function Index() {
                     <div className="text-[10px] font-bold text-[#003366] uppercase tracking-widest">
                       {e.mes}
                     </div>
-                    <div className="text-2xl font-light text-slate-800">
-                      {e.dia}
-                    </div>
+                    <div className="text-2xl font-light text-slate-800">{e.dia}</div>
                   </div>
                   <div>
                     <div className="text-[#003366] font-semibold">{e.title}</div>
@@ -280,7 +261,10 @@ function Index() {
               ))}
             </ul>
             <div className="text-right mt-4">
-              <a href="#" className="text-xs font-bold tracking-widest text-[#003366] uppercase hover:underline">
+              <a
+                href="#anos"
+                className="text-xs font-bold tracking-widest text-[#003366] uppercase hover:underline"
+              >
                 Ver Calendário →
               </a>
             </div>
@@ -288,7 +272,6 @@ function Index() {
         </div>
       </section>
 
-      {/* Anos importantes — timeline */}
       <section id="anos" className="bg-slate-50 py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-center text-[#003366] text-2xl font-light tracking-wide">
@@ -309,14 +292,14 @@ function Index() {
         </div>
       </section>
 
-      {/* Como Chegar */}
       <section id="como-chegar" className="bg-white py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-center text-[#003366] text-2xl font-light tracking-wide">
             COMO CHEGAR
           </h2>
           <p className="text-center text-slate-600 mt-3 text-sm max-w-2xl mx-auto">
-            O CETI José Nogueira de Aguiar está localizado em Esperantina — PI. Veja o mapa abaixo para traçar sua rota.
+            O CETI José Nogueira de Aguiar está localizado em Esperantina — PI. Veja o mapa abaixo
+            para traçar sua rota.
           </p>
           <div className="mt-8 rounded-sm overflow-hidden border border-slate-200 shadow-sm">
             <iframe
@@ -346,16 +329,20 @@ function Index() {
         </div>
       </section>
 
-      {/* Bottom CTA */}
       <div className="bg-[#003366] text-white">
         <div className="max-w-5xl mx-auto grid grid-cols-3 divide-x divide-white/20 text-center text-sm font-semibold tracking-widest uppercase">
-          <a href="#historia" className="py-5 hover:bg-white/5 transition">Conheça</a>
-          <a href="#cursos" className="py-5 hover:bg-white/5 transition">Matricule-se</a>
-          <a href="#eventos" className="py-5 hover:bg-white/5 transition">Visite</a>
+          <a href="#historia" className="py-5 hover:bg-white/5 transition">
+            Conheça
+          </a>
+          <a href="#cursos" className="py-5 hover:bg-white/5 transition">
+            Matricule-se
+          </a>
+          <a href="#eventos" className="py-5 hover:bg-white/5 transition">
+            Visite
+          </a>
         </div>
       </div>
 
-      {/* Footer */}
       <footer className="bg-white py-10 px-6 border-t border-slate-100">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 items-start">
           <div className="flex items-center gap-4">
@@ -375,9 +362,7 @@ function Index() {
             <div className="font-semibold text-[#003366]">Contato</div>
             <div className="mt-2">CETI José Nogueira de Aguiar</div>
             <div>contato@cetijna.edu.br</div>
-            <div className="mt-4 text-xs text-slate-400">
-              © 2026 — Todos os direitos reservados
-            </div>
+            <div className="mt-4 text-xs text-slate-400">© 2026 — Todos os direitos reservados</div>
           </div>
         </div>
       </footer>
