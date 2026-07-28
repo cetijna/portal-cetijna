@@ -1,6 +1,13 @@
 import { brasaoEsportes, uniforme01, uniforme02, uniforme03 } from "@/assets/brand";
+import { ImageGallery } from "@/components/ImageGallery";
 import { PageShell } from "@/components/PageShell";
 import { noticiasContent } from "@/data/content";
+
+const uniformes = [
+  { src: uniforme01, alt: "Detalhe do escudo no uniforme de esportes" },
+  { src: uniforme02, alt: "Uniforme de esportes do CETI" },
+  { src: uniforme03, alt: "Aplicação do escudo no uniforme" },
+];
 
 export function InterclassePage() {
   return (
@@ -33,22 +40,11 @@ export function InterclassePage() {
         </div>
 
         <section>
-          <h2 className="text-[#003366] text-xl font-semibold mb-4">Uniformes</h2>
-          <div className="grid sm:grid-cols-3 gap-3">
-            {[
-              { src: uniforme01, alt: "Detalhe do escudo no uniforme de esportes" },
-              { src: uniforme02, alt: "Uniforme de esportes do CETI" },
-              { src: uniforme03, alt: "Aplicação do escudo no uniforme" },
-            ].map((u) => (
-              <img
-                key={u.alt}
-                src={u.src}
-                alt={u.alt}
-                loading="lazy"
-                className="w-full h-56 object-cover rounded-sm shadow-sm"
-              />
-            ))}
-          </div>
+          <h2 className="text-[#003366] text-xl font-semibold mb-2">Uniformes</h2>
+          <p className="text-sm text-slate-500 mb-4">
+            Clique em uma foto para ampliar e navegar.
+          </p>
+          <ImageGallery images={uniformes} columns="3" thumbClassName="w-full h-56" />
         </section>
       </div>
     </PageShell>
