@@ -1,4 +1,4 @@
-import { brasao, brasaoNegativo } from "@/assets/brand";
+import { brasao, brasaoEsportes, brasaoNegativo } from "@/assets/brand";
 import { PageShell } from "@/components/PageShell";
 import { identidadeContent } from "@/data/content";
 
@@ -19,6 +19,11 @@ const downloads: DownloadItem[] = [
     title: "Brasão negativo (SVG)",
     href: brasaoNegativo,
     note: "Versão para fundos escuros",
+  },
+  {
+    title: "Brasão de esportes (SVG)",
+    href: brasaoEsportes,
+    note: "Versão vetorial para equipes e competições",
   },
   ...identidadeContent.arquivos.map((a) => ({
     title: a.title,

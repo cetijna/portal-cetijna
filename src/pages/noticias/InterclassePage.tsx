@@ -1,4 +1,4 @@
-import { escudoEsportes, uniforme01, uniforme02, uniforme03 } from "@/assets/brand";
+import { brasaoEsportes, uniforme01, uniforme02, uniforme03 } from "@/assets/brand";
 import { PageShell } from "@/components/PageShell";
 import { noticiasContent } from "@/data/content";
 
@@ -10,14 +10,14 @@ export function InterclassePage() {
 
         <div className="bg-white p-8 shadow-sm flex flex-col sm:flex-row items-center gap-8">
           <img
-            src={escudoEsportes}
-            alt="Escudo de esportes do CETI José Nogueira de Aguiar"
+            src={brasaoEsportes}
+            alt="Brasão de esportes do CETI José Nogueira de Aguiar"
             className="w-40 h-40 object-contain"
           />
           <div>
             <h2 className="text-[#003366] text-xl font-semibold">CETI Esportes</h2>
             <p className="mt-2 text-sm text-slate-600 leading-relaxed">
-              Identidade visual das equipes e competições esportivas da escola, com o escudo oficial
+              Identidade visual das equipes e competições esportivas da escola, com o brasão oficial
               de esportes.
             </p>
           </div>

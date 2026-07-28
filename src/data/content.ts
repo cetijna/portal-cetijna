@@ -316,7 +316,6 @@ export const identidadeContent = {
       "A versão negativa do brasão é indicada para fundos escuros, fotografias e peças com baixa luminosidade.",
   },
   arquivos: [
-    { title: "Escudo de Esportes", status: "Em breve", note: "Pacote PNG em alta resolução" },
     { title: "Jubileu de Ouro", status: "Em breve", note: "Pacote comemorativo" },
   ],
   manual: [
