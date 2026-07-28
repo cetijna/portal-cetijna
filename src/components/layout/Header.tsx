@@ -1,5 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
-import { brasao } from "@/assets/brand";
+import { brasaoNegativo } from "@/assets/brand";
 import { navigation, type NavSection } from "@/data/navigation";
 import { useEffect, useId, useState } from "react";
 
@@ -39,7 +39,7 @@ export function Header({ transparent = false }: HeaderProps) {
           onClick={() => setMobileOpen(false)}
         >
           <img
-            src={brasao}
+            src={brasaoNegativo}
             alt="Brasão CETI José Nogueira de Aguiar"
             className="w-11 h-11 object-contain drop-shadow"
           />
