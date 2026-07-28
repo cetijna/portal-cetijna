@@ -301,11 +301,11 @@ export const noticiasContent = {
 export const identidadeContent = {
   brasao: {
     intro:
-      "O brasão oficial representa a identidade do CETI José Nogueira de Aguiar. Utilize apenas arquivos oficiais e siga o manual de uso.",
+      "O brasão oficial do CETI José Nogueira de Aguiar traz a data de fundação (1976), símbolos de educação e tecnologia, e a ponte sobre as águas — referência à identidade local. Utilize apenas os arquivos oficiais.",
   },
   logo: {
     intro:
-      "A logo da escola deve ser usada em materiais institucionais, comunicados e peças digitais oficiais.",
+      "A marca institucional combina o brasão vetorial com o nome da escola. Use em comunicados, documentos e peças digitais oficiais.",
   },
   jubileu: {
     intro:
@@ -313,17 +313,11 @@ export const identidadeContent = {
   },
   negativa: {
     intro:
-      "A versão negativa é indicada para fundos escuros. Aguarde a publicação dos arquivos oficiais.",
+      "A versão negativa do brasão é indicada para fundos escuros, fotografias e peças com baixa luminosidade.",
   },
   arquivos: [
-    {
-      title: "Brasão — PNG",
-      status: "Disponível no site",
-      note: "Versão atual exibida nas páginas",
-    },
-    { title: "Logo — vetorial", status: "Em breve", note: "Arquivo oficial para download" },
+    { title: "Escudo de Esportes", status: "Em breve", note: "Pacote PNG em alta resolução" },
     { title: "Jubileu de Ouro", status: "Em breve", note: "Pacote comemorativo" },
-    { title: "Versão negativa", status: "Em breve", note: "Para fundos escuros" },
   ],
   manual: [
     {

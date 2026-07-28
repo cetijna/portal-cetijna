@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logoCeti from "@/assets/logo-ceti.png";
+import { brasao } from "@/assets/brand";
 import { navigation } from "@/data/navigation";
 
 const footerSections = navigation.filter((s) =>
@@ -12,7 +12,7 @@ export function Footer() {
       <div className="max-w-7xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-8 items-start">
         <div className="flex items-center gap-4">
           <img
-            src={logoCeti}
+            src={brasao}
             alt="Brasão CETI José Nogueira de Aguiar"
             className="w-16 h-16 object-contain"
           />

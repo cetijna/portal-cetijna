@@ -1,4 +1,5 @@
-import logoCeti from "@/assets/logo-ceti.png";
+import { Link } from "react-router-dom";
+import { brasaoNegativo } from "@/assets/brand";
 import { PageShell } from "@/components/PageShell";
 import { identidadeContent } from "@/data/content";
 
@@ -9,14 +10,20 @@ export function VersaoNegativaPage() {
         <p className="text-slate-700 leading-relaxed">{identidadeContent.negativa.intro}</p>
         <div className="bg-[#003366] p-10 shadow-sm flex justify-center">
           <img
-            src={logoCeti}
-            alt="Prévia da marca sobre fundo escuro"
-            className="w-40 h-40 object-contain brightness-0 invert"
+            src={brasaoNegativo}
+            alt="Brasão do CETI em versão negativa"
+            className="w-56 md:w-72 h-auto object-contain"
           />
         </div>
         <p className="text-sm text-slate-500">
-          A prévia acima é apenas ilustrativa. Utilize os arquivos oficiais quando forem publicados.
+          Use a versão negativa sobre fundos escuros ou fotografias com baixa luminosidade.
         </p>
+        <Link
+          to="/identidade/brasao"
+          className="inline-block text-xs font-bold tracking-widest text-[#003366] uppercase hover:underline"
+        >
+          Ver brasão oficial →
+        </Link>
       </div>
     </PageShell>
   );

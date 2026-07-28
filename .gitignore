@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+# Originais pesados (versões otimizadas ficam em src/assets)
+newImages/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

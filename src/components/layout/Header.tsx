@@ -1,7 +1,7 @@
-import { useEffect, useId, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import logoCeti from "@/assets/logo-ceti.png";
+import { brasao } from "@/assets/brand";
 import { navigation, type NavSection } from "@/data/navigation";
+import { useEffect, useId, useState } from "react";
 
 type HeaderProps = {
   transparent?: boolean;
@@ -39,7 +39,7 @@ export function Header({ transparent = false }: HeaderProps) {
           onClick={() => setMobileOpen(false)}
         >
           <img
-            src={logoCeti}
+            src={brasao}
             alt="Brasão CETI José Nogueira de Aguiar"
             className="w-11 h-11 object-contain drop-shadow"
           />
